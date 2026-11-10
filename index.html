@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FusionCore IT | Website Under Construction</title>
+  <meta name="description" content="FusionCore IT is building a new website. Cloud infrastructure and IT strategy consultancy. Contact info@fusioncoreit.co.uk." />
+  <meta name="robots" content="noindex" />
+  <meta property="og:title" content="FusionCore IT | Under Construction" />
+  <meta property="og:description" content="Our new website is on its way. Get in touch at info@fusioncoreit.co.uk." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fusioncoreit.co.uk/" />
+  <meta name="theme-color" content="#060911" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%236366f1%22/><text x=%2216%22 y=%2221%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>FC</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060911;
+      --surface: #10182b;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --text: #eef1f8;
+      --text-muted: #9aa4bc;
+      --text-faint: #6b7590;
+      --accent-cyan: #22d3ee;
+      --accent-violet: #a78bfa;
+      --accent-blue: #6366f1;
+      --gradient: linear-gradient(120deg, var(--accent-cyan), var(--accent-blue) 55%, var(--accent-violet));
+      --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Background */
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+    }
+    .glow { position: fixed; border-radius: 50%; filter: blur(110px); opacity: 0.4; z-index: 0; pointer-events: none; }
+    .glow-cyan { width: 480px; height: 480px; top: -160px; left: -160px; background: var(--accent-cyan); opacity: 0.22; }
+    .glow-violet { width: 520px; height: 520px; bottom: -220px; right: -180px; background: var(--accent-violet); opacity: 0.25; }
+
+    /* Header */
+    header, main, footer { position: relative; z-index: 1; }
+    header { padding: 28px 24px 0; }
+    .brand {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em;
+    }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--gradient);
+      display: grid; place-items: center;
+      font-size: 0.85rem; font-weight: 800; color: #fff;
+      box-shadow: 0 0 24px rgba(99, 102, 241, 0.45);
+    }
+    .wrap { max-width: 880px; margin: 0 auto; width: 100%; }
+
+    /* Hero */
+    main { flex: 1; display: flex; align-items: center; padding: 56px 24px; }
+    .hero { text-align: center; }
+    .status {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 7px 16px; border-radius: 999px;
+      border: 1px solid var(--surface-border);
+      background: rgba(16, 24, 43, 0.7);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-cyan); position: relative; }
+    .dot::after {
+      content: ""; position: absolute; inset: -4px; border-radius: 50%;
+      border: 2px solid var(--accent-cyan); opacity: 0;
+      animation: ping 2s ease-out infinite;
+    }
+    @keyframes ping { 0% { transform: scale(0.6); opacity: 0.8; } 100% { transform: scale(1.8); opacity: 0; } }
+
+    h1 {
+      margin-top: 28px;
+      font-size: clamp(2.2rem, 6vw, 3.9rem);
+      line-height: 1.08; font-weight: 800; letter-spacing: -0.03em;
+    }
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+    }
+    .lead {
+      margin: 22px auto 0; max-width: 620px;
+      font-size: clamp(1rem, 2.2vw, 1.15rem); color: var(--text-muted);
+    }
+
+    /* Progress bar */
+    .progress {
+      margin: 40px auto 0; max-width: 420px; height: 6px; border-radius: 999px;
+      background: rgba(255,255,255,0.06); overflow: hidden;
+    }
+    .progress span {
+      display: block; height: 100%; width: 70%; border-radius: inherit;
+      background: var(--gradient);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer { from { background-position: 0% 0; } to { background-position: 200% 0; } }
+    .progress-label { margin-top: 10px; font-size: 0.82rem; color: var(--text-faint); }
+
+    /* Actions */
+    .actions { margin-top: 40px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 26px; border-radius: 12px; font-weight: 600; font-size: 0.98rem;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .btn-primary { background: var(--gradient); color: #fff; box-shadow: 0 8px 30px rgba(99,102,241,0.35); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(99,102,241,0.5); }
+    .btn-ghost { border: 1px solid var(--surface-border); background: rgba(16,24,43,0.6); color: var(--text); }
+    .btn-ghost:hover { border-color: rgba(167,139,250,0.5); transform: translateY(-2px); }
+    .btn svg { flex-shrink: 0; }
+
+    /* Services */
+    .services { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; text-align: left; }
+    .card {
+      padding: 26px; border-radius: 18px;
+      background: rgba(16, 24, 43, 0.72);
+      border: 1px solid var(--surface-border);
+      backdrop-filter: blur(8px);
+    }
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: rgba(99, 102, 241, 0.14); color: var(--accent-cyan);
+      margin-bottom: 16px;
+    }
+    .card h2 { font-size: 1.08rem; font-weight: 700; letter-spacing: -0.01em; }
+    .card p { margin-top: 8px; font-size: 0.93rem; color: var(--text-muted); }
+
+    /* Footer */
+    footer { padding: 24px; border-top: 1px solid var(--surface-border); }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+      font-size: 0.85rem; color: var(--text-faint);
+    }
+    .footer-inner a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      main { padding: 40px 16px; }
+      header { padding: 22px 16px 0; }
+      footer { padding: 20px 16px; }
+      .services { grid-template-columns: 1fr; margin-top: 48px; }
+      .btn { width: 100%; justify-content: center; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="glow glow-cyan"></div>
+  <div class="glow glow-violet"></div>
+
+  <header>
+    <div class="wrap">
+      <a href="/" class="brand" aria-label="FusionCore IT home">
+        <span class="brand-mark">FC</span>
+        FusionCore IT
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <div class="status"><span class="dot"></span> Site under construction</div>
+
+      <h1>Our new website is<br /><span class="gradient-text">being built.</span></h1>
+      <p class="lead">FusionCore IT is a cloud infrastructure and IT strategy consultancy for growing businesses. We're putting the finishing touches on our new site. In the meantime, we're open for business and happy to talk.</p>
+
+      <div class="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Build progress"><span></span></div>
+      <p class="progress-label">Launching soon</p>
+
+      <div class="actions">
+        <a href="mailto:info@fusioncoreit.co.uk" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          info@fusioncoreit.co.uk
+        </a>
+      </div>
+
+      <div class="services">
+        <div class="card">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18a4.6 4.4 0 0 1 0-9 5 4.5 0 0 1 9.8-1.5A4 4 0 0 1 18 18Z"/></svg>
+          </div>
+          <h2>Cloud &amp; Infrastructure</h2>
+          <p>Cloud migration, architecture and DevOps automation across AWS and Azure, plus the networking, wireless and firewalls that connect it all.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h2>IT Strategy &amp; Managed Services</h2>
+          <p>IT roadmaps, fractional IT leadership, and managed helpdesk and monitoring, so your team can get on with running the business.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>&copy; <span id="year">2026</span> FusionCore IT. All rights reserved.</span>
+      <a href="mailto:info@fusioncoreit.co.uk">info@fusioncoreit.co.uk</a>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
